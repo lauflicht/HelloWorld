@@ -1,5 +1,9 @@
 #include "MainComponent.h"
 
+
+void Car::accelerate(float howFarToPushPedal) {
+    speed *= howFarToPushPedal;
+}
 //==============================================================================
 MainComponent::MainComponent()
 {

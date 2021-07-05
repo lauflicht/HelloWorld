@@ -8,6 +8,7 @@ struct Car {
         bool seatIsLeather;
     };
     
+    float speed {20.f};
     int numberOfWheels;
     bool convertible;
     CarSeat driversSeat;
@@ -15,7 +16,7 @@ struct Car {
     
     bool switchedSeats (CarSeat oldSeat, CarSeat newSeat);
     
-    void accelerate (float howFarToPushThePedal);
+    void accelerate (float howFarToPushThePedal = 1.f);
 };
 
 //==============================================================================
