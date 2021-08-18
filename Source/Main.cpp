@@ -9,6 +9,42 @@
 #include <JuceHeader.h>
 #include "MainComponent.h"
 
+struct Person
+{
+    int age = 0;
+    int heightInInches = 0;
+    float hairLength = 0.f;
+    float GPA = 0.f;
+    unsigned int SATScore = 0;
+    int distanceTraveled = 0;
+    
+    Person();
+    Person(int age_val);
+    Person(int age_val, float hairLength_val);
+    ~Person();
+};
+
+Person::Person()
+{
+    DBG("Constructor called");
+}
+
+Person::Person(int age_val) : Person()
+{
+    age = age_val;
+}
+
+Person::Person(int age_val, float hairLength_val) : Person (age_val)
+{
+    hairLength = hairLength_val;
+}
+
+
+Person::~Person()
+{
+    DBG("Destructor called");
+}
+
 //==============================================================================
 class HelloWorldApplication  : public juce::JUCEApplication
 {
@@ -24,7 +60,9 @@ public:
     void initialise (const juce::String& commandLine) override
     {
         // This method is where you should put your application's initialisation code..
-
+        Person p(22, 5.f);
+        DBG(p.age);
+        DBG(p.hairLength);
         mainWindow.reset (new MainWindow (getApplicationName()));
     }
 
